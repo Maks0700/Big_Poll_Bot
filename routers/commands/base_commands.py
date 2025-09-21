@@ -1,4 +1,4 @@
-from aiogram import Router,types
+from aiogram import Router, types
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart,Command
 from aiogram.utils import markdown
@@ -6,7 +6,6 @@ from keyboards.Keyboards import create_keyboard,Button_Text,code_command, get_ac
 from aiogram import F
 from aiogram.types import InlineKeyboardMarkup,InlineKeyboardButton
 from keyboards.Keyboards import inline_keyboard_create
-
 
 router=Router()
     
@@ -25,7 +24,7 @@ async def handle_start(message:types.Message):
     
 
 @router.message(F.text==Button_Text.WHATS_NEXT)
-@router.message(Command("code",prefix="/!%"))
+@router.message(Command("code", prefix="/!%"))
 async def handle_command_code(message:types.Message):
     text=markdown.text("Here Python code")
     await message.answer(text=text,reply_markup=code_command())
